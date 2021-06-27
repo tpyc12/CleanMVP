@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.myhome.android.clean.model.data.AppState
 import com.myhome.android.clean.presenter.Presenter
 
-abstract class BaseActivity<T: AppState> : AppCompatActivity(), View {
+abstract class BaseActivity<T: AppState> : AppCompatActivity(), MvpView {
     // Храним ссылку на презентер
-    protected lateinit var presenter: Presenter<T, View>
+    protected lateinit var presenter: Presenter<T, MvpView>
 
-    protected abstract fun createPresenter(): Presenter<T, View>
+    protected abstract fun createPresenter(): Presenter<T, MvpView>
 
     abstract override fun renderData(appState: AppState)
 

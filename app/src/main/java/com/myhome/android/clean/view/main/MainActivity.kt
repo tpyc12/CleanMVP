@@ -10,7 +10,7 @@ import com.myhome.android.clean.model.data.AppState
 import com.myhome.android.clean.model.data.DataModel
 import com.myhome.android.clean.presenter.Presenter
 import com.myhome.android.clean.view.base.BaseActivity
-import com.myhome.android.clean.view.base.View
+import com.myhome.android.clean.view.base.MvpView
 import com.myhome.android.clean.view.main.adapter.MainAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -44,7 +44,7 @@ class MainActivity : BaseActivity<AppState>() {
     }
 
     // Создаём презентер и храним его в базовой Activity
-    override fun createPresenter(): Presenter<AppState, View> {
+    override fun createPresenter(): Presenter<AppState, MvpView> {
         return MainPresenterImpl()
     }
 

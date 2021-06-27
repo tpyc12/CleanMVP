@@ -7,8 +7,11 @@ import io.reactivex.Observable
 class RepositoryImplementation(private val dataSource: DataSource<List<DataModel>>) :
     Repository<List<DataModel>> {
 
-    // Репозиторий возвращает данные, используя dataSource (локальный или внешний)
+    private val cache = mutableMapOf<String, List<DataModel>>()
+
     override fun getData(word: String): Observable<List<DataModel>> {
+        if (cache.containsKey(word)) return Observable.just(cache[word])
         return dataSource.getData(word)
+            .doOnNext { cache[word] = it }
     }
 }

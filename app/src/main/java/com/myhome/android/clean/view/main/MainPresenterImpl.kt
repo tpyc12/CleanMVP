@@ -6,11 +6,11 @@ import com.myhome.android.clean.model.datasource.DataSourceRemote
 import com.myhome.android.clean.model.repository.RepositoryImplementation
 import com.myhome.android.clean.presenter.Presenter
 import com.myhome.android.clean.rx.SchedulerProvider
-import com.myhome.android.clean.view.base.View
+import com.myhome.android.clean.view.base.MvpView
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 
-class MainPresenterImpl<T : AppState, V : View>(
+class MainPresenterImpl<T : AppState, V : MvpView>(
     // Обратите внимание, что Интерактор мы создаём сразу в конструкторе
     private val interactor: MainInteractor = MainInteractor(
         RepositoryImplementation(DataSourceRemote()),
