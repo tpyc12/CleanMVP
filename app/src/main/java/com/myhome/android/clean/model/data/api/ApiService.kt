@@ -1,4 +1,4 @@
-package com.myhome.android.clean.model.datasource
+package com.myhome.android.clean.model.data.api
 
 import com.myhome.android.clean.model.data.DataModel
 import io.reactivex.Observable

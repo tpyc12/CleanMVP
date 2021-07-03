@@ -1,4 +1,4 @@
-package com.myhome.android.clean.presenter
+package com.myhome.android.clean.viewmodel
 
 import io.reactivex.Observable
 
