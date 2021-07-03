@@ -1,4 +1,4 @@
-package com.myhome.android.clean.model.datasource
+package com.myhome.android.clean.model.data.api
 
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -11,13 +11,13 @@ class BaseInterceptor private constructor() : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val response = chain.proceed(chain.request())
-        responseCode = response.code
+        responseCode = response.code()
         return response
     }
 
     fun getResponseCode(): ServerResponseStatusCode {
         var statusCode = ServerResponseStatusCode.UNDEFINED_ERROR
-        when(responseCode / 100){
+        when (responseCode / 100) {
             1 -> statusCode = ServerResponseStatusCode.INFO
             2 -> statusCode = ServerResponseStatusCode.SUCCESS
             3 -> statusCode = ServerResponseStatusCode.REDIRECTION

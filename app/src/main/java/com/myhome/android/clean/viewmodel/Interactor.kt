@@ -1,4 +1,4 @@
-package com.myhome.android.clean.presenter
+package com.myhome.android.clean.viewmodel
 
 import io.reactivex.Observable
 
@@ -7,5 +7,5 @@ interface Interactor<T> {
 
     // Use Сase: получение данных для вывода на экран
     // Используем RxJava
-    fun getData(word: String, fromRemoteSource: Boolean): Observable<T>
+    suspend fun getData(word: String, fromRemoteSource: Boolean): T
 }
